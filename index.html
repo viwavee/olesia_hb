@@ -142,24 +142,51 @@
     /* HERO                  */
     /* ===================== */
     .hero {
-      height: 100vh;
-      min-height: 600px;
+      min-height: 100vh;
       display: flex;
+      flex-direction: column;
       justify-content: center;
       align-items: center;
       text-align: center;
-      background: linear-gradient(rgba(0,0,0,.35), rgba(0,0,0,.85)), url("olesya-hero.jpg") center top/cover;
-      background-color: #080808;
+      background: #050505;
       position: relative;
       overflow: hidden;
-      padding: 0 5%;
+      padding: 100px 5% 80px;
     }
 
     .hero::before {
       content: "";
       position: absolute;
-      inset: 0;
-      background: radial-gradient(circle at center, transparent 0%, rgba(0,0,0,.25) 60%, rgba(0,0,0,.65) 100%);
+      width: 700px;
+      height: 700px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(200,165,77,.08), transparent 70%);
+      max-width: 150vw;
+      max-height: 150vw;
+      top: -10%;
+    }
+
+    .hero-photo-wrap {
+      position: relative;
+      z-index: 2;
+      opacity: 0;
+      transform: translateY(-20px) scale(.96);
+      animation: photoAppear 1.6s ease forwards;
+      animation-delay: 2.2s;
+      margin-bottom: 45px;
+    }
+
+    @keyframes photoAppear {
+      to { opacity: 1; transform: translateY(0) scale(1); }
+    }
+
+    .hero-photo {
+      width: 300px;
+      height: 300px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid var(--gold);
+      box-shadow: 0 0 0 8px rgba(200,165,77,.08), 0 20px 60px rgba(0,0,0,.6);
     }
 
     .hero-content {
@@ -168,7 +195,7 @@
       opacity: 0;
       transform: translateY(30px);
       animation: heroAppear 1.8s ease forwards;
-      animation-delay: 2.6s;
+      animation-delay: 2.8s;
       width: 100%;
       max-width: 900px;
     }
@@ -732,7 +759,9 @@
     @media (max-width: 768px) {
       section { padding: 80px 5%; }
 
-      .hero { min-height: 100svh; padding: 0 5%; }
+      .hero { min-height: 100svh; padding: 90px 5% 60px; }
+      .hero-photo { width: 200px; height: 200px; }
+      .hero-photo-wrap { margin-bottom: 30px; }
 
       .name { font-size: 52px; letter-spacing: 3px; }
       .name span { font-size: 26px; letter-spacing: 3px; }
@@ -796,6 +825,9 @@
 
   <!-- HERO -->
   <section class="hero">
+    <div class="hero-photo-wrap">
+      <img src="olesya-hero.jpg" alt="Олеся" class="hero-photo">
+    </div>
     <div class="hero-content">
       <div class="invite-label">Приглашение</div>
       <div class="subtitle">на день рождения</div>
