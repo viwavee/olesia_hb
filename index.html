@@ -181,9 +181,9 @@
     }
 
     .hero-photo {
-      width: 300px;
-      height: 300px;
-      border-radius: 50%;
+      width: 280px;
+      height: 280px;
+      border-radius: 8px;
       object-fit: cover;
       border: 2px solid var(--gold);
       box-shadow: 0 0 0 8px rgba(200,165,77,.08), 0 20px 60px rgba(0,0,0,.6);
@@ -757,7 +757,7 @@
     }
 
     @media (max-width: 768px) {
-      section { padding: 80px 5%; }
+      section { padding: 70px 6%; }
 
       .hero { min-height: 100svh; padding: 90px 5% 60px; }
       .hero-photo { width: 200px; height: 200px; }
@@ -800,8 +800,22 @@
 
       .map-button, .rsvp-button { width: 100%; padding: 18px 20px; }
 
-      .rsvp-name-input { font-size: 18px; }
-      .rsvp-choice button { font-size: 15px; padding: 16px 10px; }
+      .rsvp-name-input { font-size: 18px; padding: 16px 18px; }
+      .rsvp-choice { gap: 10px; }
+      .rsvp-choice button { font-size: 15px; padding: 16px 8px; letter-spacing: .5px; }
+      .rsvp-submit { font-size: 13px; padding: 16px 18px; }
+      .rsvp-hint { font-size: 13px; }
+
+      .schedule-item .circle { width: 62px; height: 62px; font-size: 17px; }
+      .schedule-item small { font-size: 11px; letter-spacing: 2px; }
+      .schedule-list { gap: 28px; row-gap: 30px; }
+
+      .gift-note { font-size: 17px; margin-top: 35px; padding-top: 28px; }
+
+      .footer::before { width: 500px; height: 500px; }
+
+      .location-address { line-height: 1.6; }
+      .location-address strong { font-size: 14px; margin-top: 14px; }
     }
 
     @media (max-width: 380px) {
@@ -809,19 +823,18 @@
       .name span { font-size: 21px; }
       .location-name { font-size: 30px; }
       .footer h2 { font-size: 38px; }
+      .hero-photo { width: 170px; height: 170px; }
+      .details-card { padding: 25px 16px; }
+      .location-card { padding: 32px 18px; }
+      .rsvp-card { padding: 32px 18px; }
+      .rsvp-choice button { font-size: 13px; padding: 14px 6px; }
+      .intro-text { font-size: 23px; }
     }
   </style>
 </head>
 <body>
 
-  <!-- LOADER -->
-  <div id="loader">
-    <div class="loader-box">
-      <div class="loader-title">Приглашение</div>
-      <div class="progress"><span></span></div>
-      <div class="status" id="status">Открываем...</div>
-    </div>
-  </div>
+  
 
   <!-- HERO -->
   <section class="hero">
@@ -829,12 +842,12 @@
       <img src="olesya-hero.jpg" alt="Олеся" class="hero-photo">
     </div>
     <div class="hero-content">
-      <div class="invite-label">Приглашение</div>
-      <div class="subtitle">на день рождения</div>
+      <div class="invite-label">Олеся</div>
+      <div class="subtitle">24 октября 2026</div>
       <div class="gold-line"></div>
       <h1 class="name">
-        Олеся
-        <span>24 октября 2026</span>
+        Приглашаю
+        <span>на день рождение</span>
       </h1>
     </div>
   </section>
@@ -845,7 +858,7 @@
       <div class="intro-text">
         <p>Один день в году особенный вдвойне.</p>
         <p>Хочется провести его в тёплой компании самых дорогих людей.</p>
-        <p>Будем рады видеть именно тебя!</p>
+        <p>Буду рада видеть именно тебя!</p>
       </div>
     </div>
   </section>
@@ -861,10 +874,6 @@
       <div class="info-row">
         <div class="info-title">Сбор гостей</div>
         <div class="info-value">17:30</div>
-      </div>
-      <div class="info-row">
-        <div class="info-title">Начало торжества</div>
-        <div class="info-value">18:00</div>
       </div>
       <div class="info-row">
         <div class="info-title">Место</div>
@@ -899,7 +908,7 @@
       <h2 class="location-name">DANTE</h2>
       <div class="location-address">
         г. Чебоксары, Вурнарское шоссе, 11, корпус 2
-        <strong>2 этаж</strong>
+        <strong>Второй этаж</strong>
       </div>
       <a href="https://yandex.ru/maps/?text=Чебоксары%20Вурнарское%20шоссе%2011%20корпус%202%20ресторан%20Dante" class="map-button" target="_blank">Открыть карту</a>
     </div>
@@ -922,12 +931,9 @@
           <button type="button" id="btnNo" onclick="selectChoice('no')">Не приду</button>
         </div>
         <a href="#" id="rsvpSubmit" class="rsvp-submit disabled" onclick="return sendRsvp(event)">Отправить ответ</a>
-        <div class="rsvp-hint">Ответ придёт напрямую Олесе</div>
       </div>
 
-      <div class="phone">
-        <a href="tel:+7XXXXXXXXXX">+7 (___) ___-__-__</a>
-      </div>
+      
 
       <div class="gift-note">
         Пожалуйста, <strong>без букетов</strong> — цветы, увы, быстро вянут.<br>
@@ -945,7 +951,7 @@
       <small>
         Олеся · День рождения<br><br>
         24.10.2026<br><br>
-        Сбор 17:30 · Начало 18:00
+        
       </small>
     </div>
   </section>
