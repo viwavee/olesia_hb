@@ -32,6 +32,11 @@
       line-height: 1.7;
     }
 
+    img {
+      max-width: 100%;
+      height: auto;
+    }
+
     :root {
       --gold: #C8A54D;
       --gold-light: #E6C46A;
@@ -171,8 +176,7 @@
       animation: photoAppear 1.6s ease forwards;
       animation-delay: 2.2s;
       margin-bottom: 45px;
-      max-width: 420px;
-      width: 85%;
+      width: min(420px, 90vw);
     }
 
     @keyframes photoAppear {
@@ -182,8 +186,9 @@
     .hero-photo {
       width: 100%;
       height: auto;
-      max-height: 480px;
+      max-height: none;
       display: block;
+      object-fit: contain;
       border-radius: 6px;
       border: 1px solid rgba(200,165,77,.5);
       box-shadow: 0 20px 60px rgba(0,0,0,.6);
@@ -821,8 +826,8 @@
       section { padding: 70px 6%; }
 
       .hero { min-height: 100svh; padding: 90px 5% 60px; }
-      .hero-photo-wrap { width: 90%; max-width: 420px; margin-bottom: 30px; }
-      .hero-photo { max-height: 380px; }
+      .hero-photo-wrap { width: min(92vw, 420px); margin-bottom: 30px; }
+      .hero-photo { max-height: none; }
 
       .name { font-size: 52px; letter-spacing: 3px; }
       .name span { font-size: 26px; letter-spacing: 3px; }
@@ -888,6 +893,8 @@
 
       .footer::before { width: 500px; height: 500px; }
 
+      .hero-content { max-width: 100%; }
+      .hero-photo { width: 100%; }
       .location-address { line-height: 1.6; }
       .location-address strong { font-size: 16px; margin-top: 14px; }
     }
@@ -897,8 +904,8 @@
       .name span { font-size: 21px; }
       .location-name { font-size: 30px; }
       .footer h2 { font-size: 38px; }
-      .hero-photo-wrap { width: 90%; max-width: 360px; }
-      .hero-photo { max-height: 320px; }
+      .hero-photo-wrap { width: 92vw; max-width: 360px; }
+      .hero-photo { max-height: none; }
       .details-card { padding: 25px 16px; }
       .location-card { padding: 32px 18px; }
       .rsvp-card { padding: 32px 18px; }
@@ -955,7 +962,7 @@
       </div>
       <div class="info-row">
         <div class="info-title">Место</div>
-        <div class="info-value">Ресторан <strong>Dante</strong>, г. Чебоксары</div>
+        <div class="info-value">Ресторан <strong>Dante</strong></div>
       </div>
     </div>
   </section>
@@ -1009,7 +1016,7 @@
           <button type="button" id="btnNo" onclick="selectChoice('no')">Не приду</button>
         </div>
         <a href="#" id="rsvpSubmit" class="rsvp-submit disabled" onclick="return sendRsvp(event)">Отправить ответ</a>
-        <div class="rsvp-hint" id="rsvpHint">Ответ придёт напрямую Олесе</div>
+        
       </div>
     </div>
   </section>
@@ -1042,7 +1049,7 @@
   <script>
     // ⚠️ Вставь сюда URL веб-приложения, который выдаст Google Apps Script после публикации
     // (инструкция и код скрипта — в сообщении рядом с файлом)
-    const SHEET_URL = "https://script.google.com/macros/s/AKfycbykPxESkErdorHQv_zD9eyRBS7ZEA-_UfoUwdmhuQuhZXrj2BY_P6Lsiit7EJ0GRpUy/exec";
+    const SHEET_URL = "https://script.google.com/macros/s/AKfycby5Yb0xSpBDB4dX7FVMt2lixRf7AwqWfps-qT3wEX5kZnhDf8jeVviNNtBADi2nJ1YX/exec";
 
     let rsvpChoice = null;
 
