@@ -111,7 +111,7 @@
       transform: translateY(-20px) scale(.96);
       animation: photoAppear 1s ease forwards;
       animation-delay: .1s;
-      width: clamp(130px, 34vmin, 420px);
+      width: clamp(160px, 50vmin, 420px);
       flex-shrink: 0;
     }
 
@@ -174,7 +174,13 @@
       color: white;
       font-family: var(--font-heading);
       font-weight: 600;
+      text-align: center;
+    }
+
+    .name .ls {
+      display: inline-block;
       letter-spacing: 4px;
+      margin-right: -4px;
       white-space: nowrap;
     }
 
@@ -183,10 +189,13 @@
       font-size: clamp(21px, 6.4vmin, 38px);
       color: var(--gold);
       margin-top: clamp(8px, 1.8vh, 18px);
-      letter-spacing: 3px;
       text-transform: uppercase;
       font-weight: 500;
-      white-space: nowrap;
+    }
+
+    .name span .ls {
+      letter-spacing: 3px;
+      margin-right: -3px;
     }
 
     /* ===================== */
@@ -838,8 +847,8 @@
       <div class="subtitle">24 октября 2026</div>
       <div class="gold-line"></div>
       <h1 class="name">
-        Приглашаю
-        <span>на день рождение</span>
+        <span class="ls">Приглашаю</span>
+        <span><span class="ls">на день рождение</span></span>
       </h1>
     </div>
   </section>
@@ -923,7 +932,7 @@
           <button type="button" id="btnNo" onclick="selectChoice('no')">Не приду</button>
         </div>
         <a href="#" id="rsvpSubmit" class="rsvp-submit disabled" onclick="return sendRsvp(event)">Отправить ответ</a>
-        
+        <div class="rsvp-hint" id="rsvpHint">Ответ придёт напрямую Олесе</div>
       </div>
     </div>
   </section>
