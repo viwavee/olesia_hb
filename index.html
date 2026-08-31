@@ -74,77 +74,12 @@
     }
 
     /* ===================== */
-    /* LOADER                */
-    /* ===================== */
-    #loader {
-      position: fixed;
-      inset: 0;
-      background: #000;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      z-index: 99999;
-      transition: opacity 1s, visibility 1s;
-    }
-
-    .loader-box {
-      width: 500px;
-      max-width: 90%;
-      text-align: center;
-      padding: 0 20px;
-    }
-
-    .loader-title {
-      font-size: 18px;
-      letter-spacing: 6px;
-      color: var(--gold);
-      margin-bottom: 35px;
-      text-transform: uppercase;
-      font-family: var(--font-heading);
-    }
-
-    .progress {
-      width: 100%;
-      height: 4px;
-      background: rgba(255,255,255,.1);
-      overflow: hidden;
-      margin-bottom: 25px;
-      border-radius: 2px;
-    }
-
-    .progress span {
-      display: block;
-      width: 0%;
-      height: 100%;
-      background: linear-gradient(90deg, #7b5a17, var(--gold), #f2d47f);
-      animation: loading 2.6s forwards;
-    }
-
-    .status {
-      font-size: 16px;
-      letter-spacing: 3px;
-      color: #999;
-      min-height: 20px;
-      text-transform: uppercase;
-      font-family: var(--font-ui);
-    }
-
-    @keyframes loading {
-      0% { width: 0%; }
-      100% { width: 100%; }
-    }
-
-    .hidden {
-      opacity: 0;
-      visibility: hidden;
-      pointer-events: none;
-    }
-
-    /* ===================== */
     /* HERO                  */
     /* ===================== */
     .hero {
-      min-height: 100vh;
+      height: 100vh;
+      height: 100svh;
+      min-height: 100svh;
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -153,7 +88,8 @@
       background: #050505;
       position: relative;
       overflow: hidden;
-      padding: 100px 5% 80px;
+      padding: clamp(16px, 4vh, 60px) 5%;
+      gap: clamp(14px, 3vh, 40px);
     }
 
     .hero::before {
@@ -173,10 +109,10 @@
       z-index: 2;
       opacity: 0;
       transform: translateY(-20px) scale(.96);
-      animation: photoAppear 1.6s ease forwards;
-      animation-delay: 2.2s;
-      margin-bottom: 45px;
-      width: min(420px, 90vw);
+      animation: photoAppear 1s ease forwards;
+      animation-delay: .1s;
+      width: clamp(130px, 34vmin, 420px);
+      flex-shrink: 0;
     }
 
     @keyframes photoAppear {
@@ -198,11 +134,12 @@
       position: relative;
       z-index: 2;
       opacity: 0;
-      transform: translateY(30px);
-      animation: heroAppear 1.8s ease forwards;
-      animation-delay: 2.8s;
+      transform: translateY(20px);
+      animation: heroAppear 1s ease forwards;
+      animation-delay: .35s;
       width: 100%;
       max-width: 900px;
+      flex-shrink: 1;
     }
 
     @keyframes heroAppear {
@@ -210,26 +147,30 @@
     }
 
     .invite-label {
-      font-size: 18px;
+      font-size: clamp(13px, 2.4vmin, 18px);
       letter-spacing: 8px;
       color: var(--gold);
-      margin-bottom: 18px;
+      margin-bottom: clamp(8px, 1.6vh, 18px);
       text-transform: uppercase;
       font-family: var(--font-heading);
     }
 
     .subtitle {
-      font-size: 22px;
+      font-size: clamp(14px, 2.6vmin, 22px);
       opacity: .85;
       letter-spacing: 3px;
-      margin-bottom: 35px;
+      margin-bottom: clamp(14px, 3vh, 35px);
       font-family: var(--font-heading);
     }
 
+    .hero .gold-line {
+      margin: clamp(12px, 2.5vh, 35px) auto;
+    }
+
     .name {
-      font-size: 70px;
+      font-size: clamp(30px, 7vmin, 70px);
       line-height: 1.1;
-      margin-bottom: 12px;
+      margin-bottom: clamp(6px, 1.2vh, 12px);
       color: white;
       font-family: var(--font-heading);
       font-weight: 600;
@@ -238,29 +179,12 @@
 
     .name span {
       display: block;
-      font-size: 38px;
+      font-size: clamp(16px, 3.6vmin, 38px);
       color: var(--gold);
-      margin-top: 18px;
+      margin-top: clamp(8px, 1.8vh, 18px);
       letter-spacing: 5px;
       text-transform: uppercase;
       font-weight: 500;
-    }
-
-    .scroll {
-      position: absolute;
-      bottom: 40px;
-      left: 50%;
-      transform: translateX(-50%);
-      font-size: 15px;
-      letter-spacing: 5px;
-      color: #777;
-      animation: float 2s infinite;
-      font-family: var(--font-ui);
-    }
-
-    @keyframes float {
-      0%, 100% { transform: translate(-50%, 0); }
-      50% { transform: translate(-50%, 8px); }
     }
 
     /* ===================== */
@@ -302,9 +226,9 @@
     }
 
     .intro-text p:last-child { margin-bottom: 0; }
-    .intro-text p:nth-child(1) { animation-delay: .3s; }
-    .intro-text p:nth-child(2) { animation-delay: 1.3s; }
-    .intro-text p:nth-child(3) { animation-delay: 2.6s; color: var(--gold); font-size: 30px; letter-spacing: 2px; }
+    .intro-text p:nth-child(1) { animation-delay: .1s; }
+    .intro-text p:nth-child(2) { animation-delay: .5s; }
+    .intro-text p:nth-child(3) { animation-delay: .9s; color: var(--gold); font-size: 30px; letter-spacing: 2px; }
 
     @keyframes fadeText {
       to { opacity: 1; transform: translateY(0); }
@@ -825,20 +749,6 @@
     @media (max-width: 768px) {
       section { padding: 70px 6%; }
 
-      .hero { min-height: 100svh; padding: 90px 5% 60px; }
-      .hero-photo-wrap { width: min(92vw, 420px); margin-bottom: 30px; }
-      .hero-photo { max-height: none; }
-
-      .name { font-size: 38px; letter-spacing: 3px; }
-      .name span { font-size: 26px; letter-spacing: 3px; }
-
-      .invite-label { font-size: 16px; letter-spacing: 5px; }
-      .subtitle { font-size: 18px; }
-
-      .intro { min-height: auto; padding: 90px 5%; }
-      .intro-text { font-size: 27px; line-height: 1.5; }
-      .intro-text p:nth-child(3) { font-size: 23px; letter-spacing: 1px; }
-
       .info-row { flex-direction: column; gap: 8px; padding: 18px 0; }
       .info-title { width: 100%; font-size: 16px; }
       .info-value { font-size: 20px; min-width: unset; }
@@ -893,19 +803,13 @@
 
       .footer::before { width: 500px; height: 500px; }
 
-      .hero-content { max-width: 100%; }
-      .hero-photo { width: 100%; }
       .location-address { line-height: 1.6; }
       .location-address strong { font-size: 16px; margin-top: 14px; }
     }
 
     @media (max-width: 380px) {
-      .name { font-size: 42px; }
-      .name span { font-size: 21px; }
       .location-name { font-size: 30px; }
       .footer h2 { font-size: 38px; }
-      .hero-photo-wrap { width: 92vw; max-width: 360px; }
-      .hero-photo { max-height: none; }
       .details-card { padding: 25px 16px; }
       .location-card { padding: 32px 18px; }
       .rsvp-card { padding: 32px 18px; }
@@ -913,12 +817,14 @@
       .intro-text { font-size: 23px; }
       .gifts-card { padding: 32px 18px; }
     }
+
+    @media (max-height: 700px) and (min-width: 769px) {
+      .hero { padding: 20px 5%; gap: 16px; }
+    }
   </style>
 <base target="_blank">
 </head>
 <body>
-
-  
 
   <!-- HERO -->
   <section class="hero">
@@ -934,7 +840,6 @@
         <span>на день рождение</span>
       </h1>
     </div>
-   
   </section>
 
   <!-- INTRO -->
@@ -1016,7 +921,7 @@
           <button type="button" id="btnNo" onclick="selectChoice('no')">Не приду</button>
         </div>
         <a href="#" id="rsvpSubmit" class="rsvp-submit disabled" onclick="return sendRsvp(event)">Отправить ответ</a>
-        
+        <div class="rsvp-hint" id="rsvpHint">Ответ придёт напрямую Олесе</div>
       </div>
     </div>
   </section>
@@ -1048,7 +953,6 @@
 
   <script>
     // ⚠️ Вставь сюда URL веб-приложения, который выдаст Google Apps Script после публикации
-    // (инструкция и код скрипта — в сообщении рядом с файлом)
     const SHEET_URL = "https://script.google.com/macros/s/AKfycby5Yb0xSpBDB4dX7FVMt2lixRf7AwqWfps-qT3wEX5kZnhDf8jeVviNNtBADi2nJ1YX/exec";
 
     let rsvpChoice = null;
@@ -1108,12 +1012,6 @@
 
       return false;
     }
-
-   
-
-   
-
-    
   </script>
 
 </body>
